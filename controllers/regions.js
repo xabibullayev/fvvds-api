@@ -4,7 +4,7 @@ export const getRegions = async (req, res) => {
   try {
     const regions = await Region.find();
 
-    res.json(regions);
+    res.status(200).json(regions);
   } catch (err) {
     res.json(err);
   }
@@ -19,6 +19,16 @@ export const addRegion = async (req, res) => {
     await newRegion.save();
 
     res.json("Region added!");
+  } catch (err) {
+    res.json(err);
+  }
+};
+
+export const editRegion = async (req, res) => {
+  try {
+    await Region.findByIdAndUpdate(req.params.id, req.body);
+
+    res.json("Region edited!");
   } catch (err) {
     res.json(err);
   }
