@@ -4,6 +4,8 @@ import cors from "cors";
 import regionsRouter from "./routes/regions.js";
 import hoodsRouter from "./routes/hoods.js";
 import streetsRouter from "./routes/streets.js";
+import problemsRouter from "./routes/problems.js";
+import conditionsRouter from "./routes/conditions.js";
 
 const app = express();
 
@@ -22,6 +24,8 @@ mongoose
 app.use("/regions", regionsRouter);
 app.use("/hoods", hoodsRouter);
 app.use("/streets", streetsRouter);
+app.use("/problems", problemsRouter);
+app.use("/conditions", conditionsRouter);
 
 app.listen(5000, () => {
   console.log("Server is runing on port 5000...");
